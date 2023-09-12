@@ -6,16 +6,16 @@ def is_goal(s):
 
 def successors(s):
     x, y, z = s
-    
+
     if y > 0 and x < 8:  # 5->8
         t = min(y, 8 - x)
         yield ((x + t, y - t, z), t)
-		
+	    
     if x > 0 and y < 5:  # 8->5
         t = min(x, 5 - y)
-		yield ((x - t, y + t, z), t)
-	
-	
+	yield ((x - t, y + t, z), t)
+
+
     if z > 0 and x < 8:  # 3->8
         t = min(z, 8 - x)
         yield ((x + t, y, z - t), t)
@@ -25,10 +25,12 @@ def successors(s):
         yield ((x - t, y, z + t), t)
 
 
-	if z > 0 and y < 5:  # 3->5
+    if z > 0 and y < 5:  # 3->5
         t = min(z, 5 - y)
         yield ((x, y + t, z - t), t)
-
+    
     if y > 0 and z < 3:  # 5->3
         t = min(y, 3 - z) 
         yield ((x, y - t, z + t), t)
+
+
