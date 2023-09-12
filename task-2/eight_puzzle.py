@@ -40,8 +40,7 @@ def h1(s):
     goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
     board, _, _ = s
     res = 0
-    # The for loop counts the number of elements that is different from
-    # the goal configuration.
+    # The for loop counts the number of elements that is different from the goal configuration.
     # We start from index 1 to 8 because the blank is excluded.
     for idx in range(1, 9):
         if goal[idx] != board[idx]:
@@ -49,6 +48,14 @@ def h1(s):
     return res
 
 def h3(s):
-    # implement this function
+    goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
     board, _, _ = s
-    return 0
+    res = 0
+    
+    for idx in range(1, 9):
+        if board[idx] != 0:
+            target_pos = divmod(goal.index(board[idx]), 3)
+            current_pos = divmod(idx, 3)
+            if current_pos != target_pos:
+                res += 1
+    return res
